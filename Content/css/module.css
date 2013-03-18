@@ -1,0 +1,64 @@
+#scrollbar {
+    clear: both;
+    margin: 20px 0 10px;
+    width: 606px;
+}
+
+#scrollbar .viewport {
+    position: relative;
+    overflow: hidden;
+    width: 586px;
+    height: 810px;
+}
+
+#scrollbar .overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-right: 10px;
+    list-style: none;
+}
+
+#scrollbar .thumb .end, #scrollbar .thumb {
+    background-color: #da2f44;
+}
+
+#scrollbar .scrollbar {
+    position: relative;
+    float: right;
+    width: 15px;
+}
+
+#scrollbar .track {
+    position: relative;
+    padding: 0 1px;
+    width: 13px;
+    height: 100%;
+    background: url(/Content/img/bg/track.gif) center center repeat-y;
+}
+
+#scrollbar .thumb {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 13px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#scrollbar .thumb .end {
+    overflow: hidden;
+    width: 13px;
+    height: 5px;
+}
+
+#scrollbar .disable {
+    display: none;
+}
+
+.noSelect {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
