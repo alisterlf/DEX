@@ -8,7 +8,7 @@
 		verbose: 3
 	};
 	this.traceLevel = traceLevel;
-	this.trace = traceLevel.error;
+	this.trace = traceLevel.verbose;
 	this.componentsUrl = '/Content/js/dex';
 	function onDOMChanged(element) {
 		if (!element.tagName) return;
@@ -17,6 +17,7 @@
 	function onReady() {
 		self.load(document.body);
 		return;
+		//TODO: bug no facebook
 		if (window.MutationObserver) {
 			var target = document.querySelector('body');
 			var observer = new MutationObserver(function (mutations) {
@@ -176,22 +177,3 @@
 	}
 	$(document).ready(onReady);
 }(jQuery, window, document);
-function logout(request, isManual, whereAmI, onSuccess) {
-	var request = request || "1";
-	var isManual = isManual || "2";
-	var whereAmI = whereAmI || "3";
-	var onSuccess = onSuccess || "4";
-}
-function logout(obj) {
-	var defaults = {
-		request: "1",
-		isManual: "2",
-		whereAmI: "3",
-		onSuccess: "4"
-	}
-	for (var prop in defaults) {
-		if (!obj.hasOwnProperty(prop)) {
-			obj[prop] = defaults[prop];
-		}
-	}
-}

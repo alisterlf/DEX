@@ -11,39 +11,33 @@
 	<link rel="stylesheet" href="/Content/css/structure.css" />
 	<link rel="stylesheet" href="/Content/css/module.css" />
 	<link rel="stylesheet" href="/Content/css/theme.css" />
-	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	<link rel="stylesheet" href="/Content/css/jquery-ui/jquery-ui.css" />
+	<script src="/Content/js/lib/modernizr.js"></script>
 </head>
 <body>
-	<a href="/home" style="position: absolute; top: 0; left: 0; height: 100px; width: 100px;"></a>
-	<style type="text/css">
-		position:absolute;top:0;left:0;height:100px;width:100px;
-	</style>
 	<div id="main">
-		<header>
-			<nav>
-				<ul>
-					<li>Menu</li>
-				</ul>
-			</nav>
-		</header>
 		<section>
 			<article>
 				<header>
-					<h2>Senectus et netus</h2>
-					<p>Postado <time datetime="2013-02-05T16:12:24+03:00">05 de Fevereiro de 2013</time> por <a href="#">Autor</a></p>
+					<h2>Dex Demos</h2>
+					<p>
+						Postado
+						<time datetime="2013-02-05T16:12:24+03:00">
+							05 de Fevereiro de 2013
+						</time>
+						por <a href="#">Autor</a>
+					</p>
 				</header>
-				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+				<div>
+					<input type="text" value="01/02/2013" class="dex" data-dex="calendar" data-event-validateday="args.getDay() != 0 && args.getDay() != 6" />
+				</div>
+				<div class="dex" data-dex="map" data-dex-center="-23.579682,-46.68314" style="width:400px;height:400px;"></div>
 			</article>
 		</section>
-		<aside>
-			<h2>Aenean ultricies</h2>
-			<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-		</aside>
-		<footer>
-			<p>Copyright 2009 Nome</p>
-		</footer>
 	</div>
-	<script src="/Content/js/lib/jquery-1.9.0.min.js"></script>
+	<script src="/Content/js/lib/jquery-1.9.1.js"></script>
+	<script src="/Content/js/lib/jquery-ui.js"></script>
+	<script src="/Content/js/dex/dex.js"></script>
 	<script src="/Content/js/main.js"></script>
 </body>
 </html>
