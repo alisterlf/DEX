@@ -192,7 +192,7 @@ function $L(a) {
 		var c = new Function(f, e);
 		window.LastL = c;
 		for (var b = 1; b < arguments.length; b++) {
-				c["p" + b] = arguments[b];
+			c["p" + b] = arguments[b];
 		}
 		return function() {
 			return c.apply(c.p1, arguments);
@@ -218,12 +218,13 @@ String.prototype.removeAccents = function() {
 	strAccentsOut = strAccentsOut.join('');
 	return strAccentsOut;
 };
-function queryString (Key) {
-  return unescape(window.location.href.replace(new RegExp("^(?:.*[&\\?]" + escape(Key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
-}Array.prototype.remove = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
+function queryString(Key) {
+	return unescape(window.location.href.replace(new RegExp("^(?:.*[&\\?]" + escape(Key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+Array.prototype.remove = function(from, to) {
+	var rest = this.slice((to || from) + 1 || this.length);
+	this.length = from < 0 ? this.length + from : from;
+	return this.push.apply(this, rest);
 };
 
 // Avoid `console` errors in browsers that lack a console.
