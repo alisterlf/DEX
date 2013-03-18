@@ -1,0 +1,58 @@
+/* 
+    AUTHOR: Chris Coyier
+            chriscoyier@gmail.com
+            http://chriscoyier.net
+*/
+
+/* RESETS & BASIC PAGE SETUP */
+* { margin: 0; padding: 0; }
+html { overflow-y: scroll; }
+body { 
+	font: 62.5% Georgia, serif;
+	background: url(images/background.png) repeat 5% 5%;
+}
+
+ul { list-style: none inside; }
+p { font-size: 1.2em; margin-bottom: 1.3em; }
+a { outline: none; }
+a img { border: none; }
+
+h1 { font-size: 2.0em; }
+h2 { font-size: 1.5em; font-weight: normal; font-style: italic;}
+/* END RESET */
+
+/* TOOLBOX */
+.floatleft { float: left; }
+.floatright { float: right; }
+.clear { clear: both; }
+
+/* END TOOLBOX */
+
+/* STRUCTURE AND STUFF */
+#about {
+	top: 0; left: 0;
+	padding: 20px;
+	position: absolute;
+	z-index: 999;
+	background: white;
+	-moz-opacity:0.5;
+	opacity: 0.5;
+	width: 250px;
+}
+#midground {
+	background: url(images/midground.png) repeat 20% 20%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 997;
+}
+#foreground {
+	background: url(images/foreground.png) repeat 90% 110%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 998;
+}
+
+p#ie-warning {
+	display: none;
+}
+/* END STRUCTURE */

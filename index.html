@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="/Content/css/module.css" />
 	<link rel="stylesheet" href="/Content/css/theme.css" />
 	<link rel="stylesheet" href="/Content/css/jquery-ui/jquery-ui.css" />
-	<script src="/Content/js/lib/modernizr.js"></script>
 </head>
 <body>
 	<div id="main">
@@ -20,18 +19,15 @@
 			<article>
 				<header>
 					<h2>Dex Demos</h2>
-					<p>
-						Postado
-						<time datetime="2013-02-05T16:12:24+03:00">
-							05 de Fevereiro de 2013
-						</time>
-						por <a href="#">Autor</a>
-					</p>
 				</header>
 				<div>
+					<h3>Calendar</h3>
 					<input type="text" value="01/02/2013" class="dex" data-dex="calendar" data-event-validateday="args.getDay() != 0 && args.getDay() != 6" />
 				</div>
-				<div class="dex" data-dex="map" data-dex-center="-23.579682,-46.68314" style="width:400px;height:400px;"></div>
+				<div>
+					<h3>Maps</h3>
+					<div class="dex" data-dex="map" data-dex-center="-23.579682,-46.68314" style="width:400px;height:400px;"></div>
+				</div>
 			</article>
 		</section>
 	</div>
