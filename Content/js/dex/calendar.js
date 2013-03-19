@@ -1,5 +1,4 @@
 dex.calendar = {
-	self : this,
 	events : null,
 	options : {
 		closeText : 'Fechar',
@@ -24,7 +23,7 @@ dex.calendar = {
 			dateFormat : 'dd/mm/yyyy',
 			showOn : 'focus',
 			onSelect : function(date, instance) {
-				self.select(date, config, instance);
+				this.select(date, config, instance);
 				events.tryCall('onchange', date, config);
 			},
 			beforeShowDay : function(date) {
@@ -45,7 +44,7 @@ dex.calendar = {
 		return today[format[0]] + "/" + today[format[1]] + "/" + today[format[2]];
 	},
 	select : function(date, config, instance) {
-		instance.input.val(self.display.call(self, self.options.dateFormat, instance));
+		instance.input.val(this.display.call(this, this.options.dateFormat, instance));
 	},
 	format : function(date) {
 		if (!date)
