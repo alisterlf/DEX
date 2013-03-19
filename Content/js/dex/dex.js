@@ -10,31 +10,8 @@
 	this.traceLevel = traceLevel;
 	this.trace = traceLevel.verbose;
 	this.componentsUrl = '/Content/js/dex';
-	function onDOMChanged(element) {
-		if (!element.tagName) return;
-		self.load(element);
-	}
 	function onReady() {
 		self.load(document.body);
-		//TODO: bug no facebook
-		// if (window.MutationObserver) {
-			// var target = document.querySelector('body');
-			// var observer = new MutationObserver(function (mutations) {
-				// mutations.forEach(function (mutation) {
-					// onDOMChanged(mutation.target);
-				// });
-			// });
-			// var config = {
-				// subtree: true,
-				// childList: true
-			// };
-			// observer.observe(target, config);
-		// } else if (document.addEventListener) {
-			// document.body.addEventListener("DOMNodeInserted", function (e) {
-				// e = e || event;
-				// onDOMChanged(e.srcElement || e.target || document.body);
-			// }, false);
-		// }
 	}
 	this.load = function (container) {
 		var $components = $('.dex', container);
@@ -59,7 +36,6 @@
 		var events = loadEvents(element);
 		self[component].load(element, config, events);
 		if (!self[component].requiresAsyncLoad) {
-			//console.log('fazendo load: ' + component);
 			if (events.onload) events.onload.call(element, null, config);
 			delete events.onload;
 		}
