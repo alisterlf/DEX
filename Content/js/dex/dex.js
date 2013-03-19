@@ -172,9 +172,7 @@
 			var arr = [];
 			for (var i = 1; i < arguments.length; i++) arr.push(arguments[i]);
 			return rt[eventName].apply(element, arr);
-		}
-
-
+		};
 		return rt;
 	}
 	this.log = function (text) {

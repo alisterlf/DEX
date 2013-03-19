@@ -4,7 +4,7 @@ String.Space = ' ';
 
 String.prototype.Trim = function(b, a) {
 	return this.TrimEnd(b, a).TrimStart(b, a);
-}
+};
 
 String.prototype.TrimStart = function(b, c) {
 	b = b || String.Space;
@@ -19,13 +19,13 @@ String.prototype.TrimStart = function(b, c) {
 		}
 	}
 	return a;
-}
+};
 
 String.prototype.Replace = function(a, b) {
 	a = new RegExp(a, "g");
 	var c = this.replace(a, b);
 	return c;
-}
+};
 
 String.Format = function() {
 	var e = "\"";
@@ -61,7 +61,7 @@ String.Format = function() {
 	var h = "return " + c.join("") + ";";
 	String._Formats[a] = new Function("args", h);
 	return String._Formats[a](g);
-}
+};
 
 String.prototype.TrimEnd = function(b, c) {
 	b = b || String.Space;
@@ -76,14 +76,14 @@ String.prototype.TrimEnd = function(b, c) {
 		}
 	}
 	return a;
-}
+};
 
 Array.Create = function(arr) {
 	var rt = [];
 	for (var i = 0; i < arr.length; i++)
 		rt[i] = arr[i];
 	return rt;
-}
+};
 
 Array.prototype.RemoveAt = function(c) {
 	var a = this;
@@ -94,7 +94,7 @@ Array.prototype.RemoveAt = function(c) {
 		a[b] = a[b + 1];
 	}
 	a.length = a.length - 1;
-}
+};
 
 Array.prototype.Where = function(b) {
 	b = $L.apply(null, arguments);
@@ -102,7 +102,7 @@ Array.prototype.Where = function(b) {
 		b(this[a]) && c.push(this[a]);
 	}
 	return c;
-}
+};
 
 Array.prototype.First = function(b) {
 	b = $L.apply(null, arguments);
@@ -112,14 +112,14 @@ Array.prototype.First = function(b) {
 	if (c.length >= 1)
 		return c[0];
 	return null;
-}
+};
 
 Array.prototype.GetPage = function(page, itemsPerPage) {
 	var temp = [];
 	for (var i = ((page * itemsPerPage) - itemsPerPage); i < (page * itemsPerPage); i++)
 		temp.push(this[i]);
 	return temp;
-}
+};
 
 Function.prototype.GetName = function() {
 	var a = this;
@@ -157,7 +157,7 @@ Function.prototype.GetName = function() {
 	}
 	a.name = c.substring(d, e);
 	return a.name;
-}
+};
 function $GetType(a) {
 	if ( a instanceof Function) {
 		return "Function";
@@ -186,12 +186,13 @@ function $L(a) {
 	d = d.join("=>");
 	var e = String.Format("return {0};", d);
 	if (arguments.length > 1) {
-		for (var b = 1; b < arguments.length; b++) {
+		var b = 1;
+		for ( b = 1, l = arguments.length; b < l; b++) {
 			e = "var p" + b + " = arguments.callee.p" + b + ";\r\n" + e;
 		}
 		var c = new Function(f, e);
 		window.LastL = c;
-		for (var b = 1; b < arguments.length; b++) {
+		for ( b = 1, l = arguments.length; b < l; b++) {
 			c["p" + b] = arguments[b];
 		}
 		return function() {
@@ -205,7 +206,7 @@ function $L(a) {
 
 String.prototype.removeAccents = function() {
 	var strAccents = this.split('');
-	var strAccentsOut = new Array();
+	var strAccentsOut = [];
 	var strAccentsLen = strAccents.length;
 	var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
 	var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
@@ -221,6 +222,7 @@ String.prototype.removeAccents = function() {
 function queryString(Key) {
 	return unescape(window.location.href.replace(new RegExp("^(?:.*[&\\?]" + escape(Key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
+
 Array.prototype.remove = function(from, to) {
 	var rest = this.slice((to || from) + 1 || this.length);
 	this.length = from < 0 ? this.length + from : from;
