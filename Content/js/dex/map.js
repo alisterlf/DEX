@@ -36,7 +36,6 @@ dex.map = {
 		var module = mapSettings.module;
 		var cfg = mapSettings.config;
 		var map = module.createMap(mapSettings);
-
 		for (var e in mapSettings.events) {
 			if (e.indexOf('onmarker') === 0 || e == 'onload') {
 				continue;
@@ -48,7 +47,6 @@ dex.map = {
 				}, mapSettings.config);
 			});
 		}
-
 		var markers = [];
 		if (mapSettings.config.markersdatasource) {
 			dex.log('map::Adding markers', dex.traceLevel.info);
@@ -58,14 +56,11 @@ dex.map = {
 				var point = this.getPosition(config.latlng);
 				var marker = module.createMarker(map, point, config);
 				markers.push(marker);
-
 				dex.log('map::Adding marker {0}.', point, dex.traceLevel.verbose);
-
 				for (var e in mapSettings.events) {
 					if (e.indexOf('onmarker') !== 0) {
 						continue;
 					}
-
 					var ev = e.substr(6);
 					var handler = function(ev) {
 						var c = arguments.callee;
@@ -80,7 +75,6 @@ dex.map = {
 					handler.event = mapSettings.events[e];
 					handler.marker = marker;
 					handler.element = this;
-
 					module.attachEvent(marker, e.substr(8), handler);
 				}
 			});
@@ -115,7 +109,6 @@ dex.map = {
 		loadScript : function() {
 			$.getScript("//maps.google.com/maps/api/js?sensor=true&region=nz&async=2&callback=dex.map.apiLoaded");
 		},
-
 		createMap : function(mapSettings) {
 			var myOptions = {
 				mapTypeId : google.maps.MapTypeId.ROADMAP,
@@ -123,23 +116,19 @@ dex.map = {
 			};
 			return new google.maps.Map(mapSettings.element, myOptions);
 		},
-
 		attachEvent : function(obj, eventName, handler) {
 			return google.maps.event.addListener(obj, eventName, handler);
 		},
-
 		createMarker : function(map, point, cfg) {
 			var marker = new google.maps.Marker();
 			marker.setPosition(new google.maps.LatLng(point.latitude, point.longitude));
 			marker.setMap(map);
 			return marker;
 		},
-
 		setCenter : function(map, point, zoom) {
 			map.setCenter(new google.maps.LatLng(point.latitude, point.longitude));
 			map.setZoom(zoom);
 		},
-
 		fitBounds : function(map, markers) {
 			var bound = new google.maps.LatLngBounds();
 			for (var i = 0; i < markers.length; i++) {
@@ -174,7 +163,6 @@ dex.map = {
 		createMarker : function(map, point, cfg) {
 			var pin = new Microsoft.Maps.Pushpin(point);
 			map.entities.push(pin);
-
 			return pin;
 		},
 		setCenter : function(map, point, zoom) {
