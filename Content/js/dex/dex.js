@@ -1,4 +1,4 @@
-window.dex = (function($, window, document, undefined) {
+window.Behaviors = (function($, window, document, undefined) {
 	$(document).ready(onReady);
 	var self = this;
 	var traceLevel = {
@@ -10,7 +10,7 @@ window.dex = (function($, window, document, undefined) {
 	};
 	this.traceLevel = traceLevel;
 	this.trace = traceLevel.verbose;
-	this.componentsUrl = '/Content/js/dex';
+	this.componentsUrl = '/Content/js/behaviors';
 	this.load = function(container) {
 		var $components = $('.dex', container);
 		$components.each(function(index, element) {
